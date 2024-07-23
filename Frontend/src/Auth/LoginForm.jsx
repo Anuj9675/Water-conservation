@@ -48,8 +48,8 @@ function Login() {
     };
 
     return (
-        <div className="flex h-screen">
-            <div className="w-1/2 flex flex-col justify-center items-center bg-gray-100 p-8">
+        <div className="flex h-screen flex-col lg:flex-row">
+            <div className="w-full lg:w-1/2 flex flex-col justify-center items-center bg-gray-100 p-8">
                 <h1 className="text-2xl font-bold mb-6">Login</h1>
                 <form onSubmit={handleLogin} className="w-full max-w-sm">
                     <div className="mb-4">
@@ -86,7 +86,7 @@ function Login() {
                 </form>
                 <ToastContainer />
             </div>
-            <div className="w-1/2 bg-cover bg-center" style={{ backgroundImage: `url('/path-to-your-image.jpg')` }}></div>
+            <div className="hidden lg:block lg:w-1/2 bg-cover bg-center" style={{ backgroundImage: `url('/path-to-your-image.jpg')` }}></div>
         </div>
     );
 }

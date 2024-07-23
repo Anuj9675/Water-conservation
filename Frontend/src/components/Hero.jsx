@@ -37,48 +37,55 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Text above the Navbar */}
-      <div className="lg:absolute lg:top-20 lg:-right-96 lg:left-96 text-center text-black z-10">
-        <p className="lg:text-[47px] md:text-[45px] font-serif">Water Conservation</p>
-        {isLoggedIn ? (
-          <Link to="/dashboard" className=" mt-4 bg-indigo-500 text-white p-2 rounded-md hover:bg-indigo-600 transition duration-300">
-            Dashboard
-          </Link>
-        ) : (
-          <div className="mt-4">
-            <Link to="/login" className=" bg-indigo-500 text-white p-2 rounded-md hover:bg-indigo-600 transition duration-300 mr-2">Login</Link>
-            <Link to="/signup" className="inline-block bg-indigo-500 text-white p-2 rounded-md hover:bg-indigo-600 transition duration-300">Signup</Link>
-          </div>
-        )}
-      </div>
-
       {/* Navbar */}
-      <div className='lg:py-12 lg:px-32 md:py-16 md:px-24 relative z-10'>
-        <nav className="h-16 flex items-center justify-between lg:py-16 lg:px-24 md:py-12 md:px-24 mb-12">
-          {/* Logo */}
-          <div className="flex items-center">
-            <img
-              src={logo}
-              alt="WC Logo"
-              className="h-[100px] w-auto lg:h-[150px] mt-12 spin-animation"
-            />
-          </div>
-        </nav>
-        <hr className='border border-gray-500' />
-      </div>
+      <div className="flex justify-between items-center py-4 px-6 lg:py-12 lg:px-32 md:py-8 md:px-16 relative z-10">
+        {/* Logo */}
+        <div className="flex items-center">
+          <img
+            src={logo}
+            alt="WC Logo"
+            className="h-[60px] w-auto lg:h-[150px] md:h-[130px] mt-4 spin-animation"
+          />
+        </div>
 
-      {/* Hero main */}
-      <div className="flex flex-col items-center justify-center text-center z-10 relative">
-        <div className='absolute top-10'>
-          <h1 className='text-6xl'>Save Water, Save Life</h1>
-          <p className="text-xl mt-4">
-            Water is life. Act now to conserve and protect our future.
-          </p>
+        {/* Text and Buttons */}
+        <div className="text-center lg:text-right">
+          <p className="text-[25px] sm:text-[30px] md:text-[35px] lg:text-[45px] xl:text-[47px] lg:mt-12 font-serif text-black">Water Conservation</p>
+          {isLoggedIn ? (
+            <Link to="/dashboard">
+              <button className="mt-4 bg-green-500 text-white text-sm md:text-lg lg:text-lg px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-md hover:bg-green-600 transition duration-300">
+                Dashboard
+              </button>
+            </Link>
+          ) : (
+            <div className="mt-2 space-x-2">
+              <Link to="/login">
+                <button className="bg-green-500 text-white text-sm md:text-lg lg:text-lg px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-md hover:bg-green-600 transition duration-300">
+                  Login
+                </button>
+              </Link>
+              <Link to="/signup">
+                <button className="bg-green-500 text-white text-sm md:text-lg lg:text-lg px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-md hover:bg-green-600 transition duration-300">
+                  Signup
+                </button>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
 
+      <hr className="border border-gray-500 mx-6 lg:mx-32 md:mx-16 sticky w-5/6 z-10" />
+
+      {/* Hero main */}
+      <div className="flex flex-col items-center justify-center text-center z-10 relative mt-16 md:mt-24 lg:mt-32">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl">Save Water, Save Life</h1>
+        <p className="text-lg md:text-xl lg:text-2xl mt-4">
+          Water is life. Act now to conserve and protect our future.
+        </p>
+      </div>
+
       {/* Dots indicator */}
-      <div className="absolute bottom-20 left-20 flex space-x-2 z-10">
+      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
         {images.map((_, index) => (
           <div
             key={index}
