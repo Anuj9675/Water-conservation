@@ -1,3 +1,4 @@
+// routes/authRouters.js
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
@@ -5,6 +6,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
 const { loginValidation, signupValidation } = require('../validators/authValidators');
+const auth = require('../middlewares/Auth'); // Import the auth middleware
 
 // Signup Route
 router.post('/signup', signupValidation, async (req, res) => {
@@ -55,6 +57,17 @@ router.post('/login', loginValidation, async (req, res) => {
             if (err) throw err;
             res.json({ token });
         });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
+
+// Fetch Authenticated User Data Route
+router.get('/user', auth, async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).select('-password');
+        res.json(user);
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server error');

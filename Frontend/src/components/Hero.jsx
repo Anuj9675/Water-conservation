@@ -53,19 +53,19 @@ const Hero = () => {
           <p className="text-[25px] sm:text-[30px] md:text-[35px] lg:text-[45px] xl:text-[47px] lg:mt-12 font-serif text-black">Water Conservation</p>
           {isLoggedIn ? (
             <Link to="/dashboard">
-              <button className="mt-4 bg-green-500 text-white text-sm md:text-lg lg:text-lg px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-md hover:bg-green-600 transition duration-300">
+              <button className="mt-4 bg-blue-500 text-white shadow shadow-xl text-sm md:text-lg lg:text-lg px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-md hover:bg-blue-600 transition duration-300">
                 Dashboard
               </button>
             </Link>
           ) : (
             <div className="mt-2 space-x-2">
               <Link to="/login">
-                <button className="bg-green-500 text-white text-sm md:text-lg lg:text-lg px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-md hover:bg-green-600 transition duration-300">
+                <button className="bg-blue-500 text-white shadow shadow-xl text-sm md:text-lg lg:text-lg px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-md hover:bg-blue-600 transition duration-300">
                   Login
                 </button>
               </Link>
               <Link to="/signup">
-                <button className="bg-green-500 text-white text-sm md:text-lg lg:text-lg px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-md hover:bg-green-600 transition duration-300">
+                <button className="bg-blue-500 text-white shadow shadow-xl text-sm md:text-lg lg:text-lg px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-md hover:bg-blue-600 transition duration-300">
                   Signup
                 </button>
               </Link>
