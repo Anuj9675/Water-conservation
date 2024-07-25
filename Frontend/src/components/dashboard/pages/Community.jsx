@@ -1,45 +1,46 @@
 import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
+import axios from '../../../utils/axios'; // Assuming axiosInstance is properly configured
 import { Scrollbars } from 'react-custom-scrollbars';
 
-const mockUsers = [
-  { id: 1, name: 'Alice', status: 'online' },
-  { id: 2, name: 'Bob', status: 'offline' },
-  { id: 3, name: 'Charlie', status: 'online' },
-];
-
-const mockMessages = [
-  { id: 1, user: 'Alice', text: 'Hi there!' },
-  { id: 2, user: 'Bob', text: 'Hello!' },
-];
-
 function Community() {
-  const [forums, setForums] = useState([]);
-  const [users, setUsers] = useState(mockUsers);
-  const [messages, setMessages] = useState(mockMessages);
+  const [users, setUsers] = useState([]);
+  const [messages, setMessages] = useState([]);
   const [currentMessage, setCurrentMessage] = useState('');
   const [currentUser, setCurrentUser] = useState('Alice'); // Mock current logged-in user
 
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
-  const handleMessageSend = () => {
-    if (currentMessage.trim() !== '') {
-      const newMessage = { id: messages.length + 1, user: currentUser, text: currentMessage };
-      setMessages(prevMessages => [newMessage, ...prevMessages]);
-      setCurrentMessage('');
-    }
-  };
-
   useEffect(() => {
-    axios.get('https://api.example.com/community-forums')
+    axios.get('/users')
       .then(response => {
-        setForums(response.data);
+        setUsers(response.data);
       })
       .catch(error => {
-        console.error("There was an error fetching the community forums data!", error);
+        console.error("There was an error fetching the users data!", error);
+      });
+    
+    axios.get('/messages')
+      .then(response => {
+        setMessages(response.data);
+      })
+      .catch(error => {
+        console.error("There was an error fetching the messages data!", error);
       });
   }, []);
+
+  const handleMessageSend = () => {
+    if (currentMessage.trim() !== '') {
+      axios.post('/messages', { user: currentUser, text: currentMessage })
+        .then(response => {
+          setMessages(prevMessages => [response.data, ...prevMessages]);
+          setCurrentMessage('');
+        })
+        .catch(error => {
+          console.error("There was an error sending the message!", error);
+        });
+    }
+  };
 
   useEffect(() => {
     if (messagesEndRef.current) {
@@ -64,7 +65,7 @@ function Community() {
           <Scrollbars style={{ flex: 1 }}>
             <div className="p-4 space-y-4 m-4">
               {[...messages].reverse().map((message, index) => (
-                <div key={message.id} className={`flex ${message.user === currentUser ? 'justify-end' : 'justify-start'}`}>
+                <div key={message._id} className={`flex ${message.user === currentUser ? 'justify-end' : 'justify-start'}`}>
                   <div className={`p-4 rounded-lg shadow ${message.user === currentUser ? 'bg-blue-500 text-white' : 'bg-white'}`}>
                     <strong>{message.user}: </strong><span>{message.text}</span>
                   </div>
@@ -95,7 +96,7 @@ function Community() {
           <h2 className="text-xl font-bold mb-4">Users</h2>
           <ul>
             {users.map((user) => (
-              <li key={user.id} className={`flex items-center p-2 mb-2 rounded-md ${user.status === 'online' ? 'bg-green-100' : 'bg-red-100'}`}>
+              <li key={user._id} className={`flex items-center p-2 mb-2 rounded-md ${user.status === 'online' ? 'bg-green-100' : 'bg-red-100'}`}>
                 <span className={`w-3 h-3 mr-2 rounded-full ${user.status === 'online' ? 'bg-green-500' : 'bg-red-500'}`}></span>
                 {user.name}
               </li>

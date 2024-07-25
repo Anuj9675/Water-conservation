@@ -66,13 +66,13 @@ function Header({ user, isSidebarOpen, toggleSidebar }) {
                 <div className="absolute top-12 right-0 bg-white shadow-md rounded-b-md py-2 px-8 border border-gray-200">
                   <button
                     onClick={handleLogout}
-                    className='block w-full py-2 flex items-center text-left'>
+                    className='block w-full py-2 flex items-center text-left transition-colors duration-200 ease-in-out hover:text-red-500'>
                     <FaSignOutAlt className="mr-2" /> Logout
                   </button>
-                  <Link to="/dashboard/report" className='block w-full py-2 flex items-center'>
+                  <Link to="/dashboard/report" className='block w-full py-2 flex items-center transition-colors duration-200 ease-in-out hover:text-orange-500'>
                     <FaFileAlt className="mr-2" /> Report
                   </Link>
-                  <Link to="/settings" className="block w-full py-2 flex items-center">
+                  <Link to="/settings" className="block w-full py-2 flex items-center transition-colors duration-200 ease-in-out hover:text-gray-700">
                     <FaCog className="mr-2" /> Settings
                   </Link>
                 </div>
