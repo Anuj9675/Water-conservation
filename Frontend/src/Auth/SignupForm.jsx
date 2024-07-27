@@ -29,33 +29,45 @@ function Signup() {
 
         try {
             const response = await axiosInstance.post('/auth/signup', signupInfo);
-            const { success, message } = response.data;
-            if (success) {
-                toast.success(message); // Show success message
+
+            // Check if response status is 200 and contains a token
+            if (response.status === 200 && response.data.token) {
+                toast.success('You have successfully registered');
+                localStorage.setItem('token', response.data.token);
+
                 setTimeout(() => {
-                    navigate('/login'); // Navigate to login page after 5 seconds
-                }, 5000); // 5000 milliseconds = 5 seconds
+                    navigate('/login');
+                }, 2000);
+            } else {
+                // Handle cases where token might not be present but status is 200
+                toast.error(response.data.message || 'Registration failed');
             }
         } catch (err) {
-            toast.error(err.response?.data?.msg || 'Server error');
+            // Detailed error handling for different cases
+            if (err.response) {
+                // Server responded with a status code outside the range of 2xx
+                toast.error(err.response.data.message || 'Server error');
+            } else if (err.request) {
+                // The request was made but no response was received
+                toast.error('No response from server');
+            } else {
+                // Something happened in setting up the request
+                toast.error('Request setup error');
+            }
         }
     };
-
 
     return (
         <div className="flex h-screen flex-col lg:flex-row">
             <div className="relative lg:flex lg:w-1/2 bg-cover bg-center" style={{ backgroundImage: `url('/path-to-your-water-image.jpg')` }}>
-
                 <button className="absolute top-100 m-4 z-10">
                     <Link className="text-blue-600 text-2xl flex items-center transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
-                    to="/">
+                        to="/">
                         <FaHome className="mr-2" />
                     </Link>
                 </button>
                 <div>
-                    <button
-                        className="absolute inset-0 flex justify-center items-center z-1"
-                    >
+                    <button className="absolute inset-0 flex justify-center items-center z-1">
                         <Link
                             to="/login"
                             className="text-blue-600 text-xl flex items-center p-2 bg-white bg-opacity-30 border border-gray-300 rounded-md shadow-md transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-opacity-40 hover:backdrop-blur-md"

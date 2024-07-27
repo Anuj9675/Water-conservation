@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const authRoutes = require('./routes/authRouters');
+const authRoutes = require('./routes/authRouters')
+const usersRouter = require('./routes/userRouters');
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(cors()); // Use cors for handling cross-origin requests
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/users', usersRouter); // Use the users router
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
