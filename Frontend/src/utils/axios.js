@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://water-conservation-backend.onrender.com/api', 
+  baseURL: 'https://water-conservation-backend.onrender.com', 
   headers: {
     'Content-Type': 'application/json',
   },
