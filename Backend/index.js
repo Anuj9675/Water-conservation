@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const authRoutes = require('./routes/authRouters')
+const path = require('path');
+const authRoutes = require('./routes/authRouters');
 const usersRouter = require('./routes/userRouters');
 
 dotenv.config();
@@ -16,6 +17,15 @@ app.use(cors()); // Use cors for handling cross-origin requests
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', usersRouter); // Use the users router
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'Frontend/build')));
+
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Frontend/build/index.html'));
+});
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
