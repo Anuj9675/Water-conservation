@@ -142,7 +142,7 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
           <ul className="pt-2 space-y-1">
             <li>
               <Link
-                to="/settings"
+                to="/"
                 className={`flex items-center p-2 space-x-2 rounded-md text-sm transition-colors duration-200 ease-in-out ${isActive('/settings') ?  'text-black' : 'text-gray-500 hover:text-black hover:bg-gray-200'}`}
               >
                 <div

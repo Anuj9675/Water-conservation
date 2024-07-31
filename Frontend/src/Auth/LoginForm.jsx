@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import { FaHome, FaLock } from 'react-icons/fa'; // Import FaHome icon
-import axiosInstance from '../utils/axios'; // Import your axios instance
+import { FaHome, FaLock } from 'react-icons/fa'; 
+import axiosInstance from '../utils/axios'; 
 import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
@@ -92,7 +92,7 @@ function Login() {
                     <ToastContainer />
                 </div>
             </div>
-            <div className="relative hidden lg:flex lg:w-1/2 bg-cover bg-center" style={{ backgroundImage: `url('/path-to-your-image.jpg')` }}>
+            <div className="relative hidden lg:flex lg:w-1/2 bg-cover bg-center" style={{ backgroundImage: `url('${"https://cdn.discordapp.com/attachments/853242550243557408/1268096918509195385/Bgls.jpg?ex=66ab2ec9&is=66a9dd49&hm=0c0eddd8e78831281edbdfc2d0221f651d5b81ac39f6b38d1edc4918e9c875dd&"})` }}>
                 <button
                     className="absolute inset-0 flex justify-center items-center"
                    

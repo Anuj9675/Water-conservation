@@ -33,7 +33,7 @@ function Header({ user, isSidebarOpen, toggleSidebar }) {
   return (
     <div className="relative flex flex-col">
       {logoutSuccess && (
-        <div className="fixed bottom-4 right-4 bg-green-200 text-green-800 p-4 rounded-lg shadow-lg transition-opacity opacity-100">
+        <div className="fixed bottom-4 right-4 bg-green-200 text-green-800 p-4 rounded-lg shadow-lg transition-opacity opacity-100 z-50">
           Logout successfully
         </div>
       )}
@@ -49,7 +49,7 @@ function Header({ user, isSidebarOpen, toggleSidebar }) {
             <div className="text-xl font-semibold mx-4">
               {user ? (user.name.length > 10 ? getInitials(user.name) : user.name) : 'Loading...'}
             </div>
-            <div className="flex items-center cursor-pointer" onClick={toggleMenu}>
+            <div className="relative flex items-center cursor-pointer" onClick={toggleMenu}>
               <img
                 src={Defaultpic}
                 alt="Profile"
@@ -62,20 +62,18 @@ function Header({ user, isSidebarOpen, toggleSidebar }) {
               )}
             </div>
             {isMenuOpen && (
-              <div className="relative">
-                <div className="absolute top-12 right-0 bg-white shadow-md rounded-b-md py-2 px-8 border border-gray-200">
-                  <button
-                    onClick={handleLogout}
-                    className='block w-full py-2 flex items-center text-left transition-colors duration-200 ease-in-out hover:text-red-500'>
-                    <FaSignOutAlt className="mr-2" /> Logout
-                  </button>
-                  <Link to="/dashboard/report" className='block w-full py-2 flex items-center transition-colors duration-200 ease-in-out hover:text-orange-500'>
-                    <FaFileAlt className="mr-2" /> Report
-                  </Link>
-                  <Link to="/settings" className="block w-full py-2 flex items-center transition-colors duration-200 ease-in-out hover:text-gray-700">
-                    <FaCog className="mr-2" /> Settings
-                  </Link>
-                </div>
+              <div className="absolute top-24 right-2 bg-white shadow-lg rounded-md py-4 px-6 bborder border-gray-200 z-50">
+                <button
+                  onClick={handleLogout}
+                  className='block w-full py-2 flex items-center text-left transition-colors duration-200 ease-in-out hover:text-red-500'>
+                  <FaSignOutAlt className="mr-2" /> Logout
+                </button>
+                <Link to="/dashboard/report" className='block w-full py-2 flex items-center transition-colors duration-200 ease-in-out hover:text-orange-500'>
+                  <FaFileAlt className="mr-2" /> Report
+                </Link>
+                <Link to="/" className="block w-full py-2 flex items-center transition-colors duration-200 ease-in-out hover:text-gray-700">
+                  <FaCog className="mr-2" /> Settings
+                </Link>
               </div>
             )}
           </div>

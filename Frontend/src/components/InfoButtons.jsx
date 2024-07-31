@@ -7,7 +7,7 @@ function InfoButtons() {
             <div className="flex flex-wrap justify-between mb-8">
                 <Link
                     className="w-full md:w-1/3 px-4 py-16 bg-green-500 border text-white hover:bg-green-600 flex flex-col items-center justify-center"
-                    to="/causes"
+                    to="/dashboard/funding"
                 >
                     <h3 className="text-lg font-bold text-center mb-2">Support</h3>
                     <p className="text-md text-center">
@@ -16,7 +16,7 @@ function InfoButtons() {
                 </Link>
                 <Link
                     className="w-full md:w-1/3 px-4 py-16 bg-green-500 border text-white hover:bg-green-600 flex flex-col items-center justify-center"
-                    to="/volunteer"
+                    to="/dashboard/volunteer"
                 >
                     <h3 className="text-lg font-bold text-center mb-2">Volunteer</h3>
                     <p className="text-md text-center">
@@ -25,11 +25,11 @@ function InfoButtons() {
                 </Link>
                 <Link
                     className="w-full md:w-1/3 px-4 py-16 bg-green-500 border text-white hover:bg-green-600 flex flex-col items-center justify-center"
-                    to="/events"
+                    to="/dashboard/resources"
                 >
-                    <h3 className="text-lg font-bold text-center mb-2">Join</h3>
+                    <h3 className="text-lg font-bold text-center mb-2">Resources</h3>
                     <p className="text-md text-center">
-                        Participate in upcoming events and initiatives.
+                    Learn About Water Conservation.
                     </p>
                 </Link>
             </div>

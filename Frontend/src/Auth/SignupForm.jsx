@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import { FaHome, FaLock } from 'react-icons/fa'; // Import FaHome icon
-import axiosInstance from '../utils/axios'; // Import the axiosInstance
+import { FaHome, FaLock } from 'react-icons/fa'; 
+import axiosInstance from '../utils/axios'; 
 import 'react-toastify/dist/ReactToastify.css';
 
 function Signup() {
@@ -59,7 +59,7 @@ function Signup() {
 
     return (
         <div className="flex h-screen flex-col lg:flex-row">
-            <div className="relative lg:flex lg:w-1/2 bg-cover bg-center" style={{ backgroundImage: `url('/path-to-your-water-image.jpg')` }}>
+            <div className="relative lg:flex lg:w-1/2 bg-cover bg-center" style={{ backgroundImage: `url('${"https://cdn.discordapp.com/attachments/853242550243557408/1268096918509195385/Bgls.jpg?ex=66ab2ec9&is=66a9dd49&hm=0c0eddd8e78831281edbdfc2d0221f651d5b81ac39f6b38d1edc4918e9c875dd&"})` }}>
                 <button className="absolute top-100 m-4 z-10">
                     <Link className="text-blue-600 text-2xl flex items-center transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
                         to="/">

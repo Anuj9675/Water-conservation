@@ -11,15 +11,17 @@ function Dashboard() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axiosInstance.get('/auth/user'); // Fetch user data from your backend
-        setUser(response.data); // Set the user data
+        const response = await axiosInstance.get('/auth/user');
+        setUser(response.data);
       } catch (error) {
         console.error('Error fetching user data:', error);
+       
       }
     };
-
+  
     fetchUser();
   }, []);
+  
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);

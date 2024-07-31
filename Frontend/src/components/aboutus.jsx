@@ -25,7 +25,7 @@ const AboutUs = () => {
             {/* First Card: Image Left, Text Right */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div className="order-1 md:order-2">
-                <img src="https://www.example.com/path-to-your-image/water-conservation.jpg" alt="Water Conservation" className="w-full h-auto rounded-lg shadow-lg" />
+                <img src="https://plus.unsplash.com/premium_photo-1682144326897-4a7149b991f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Water Conservation" className="w-full h-auto rounded-lg shadow-lg" />
               </div>
               <div className="order-2 md:order-1">
                 <p className="text-lg mb-6 leading-relaxed">
@@ -43,7 +43,7 @@ const AboutUs = () => {
             {/* Second Card: Text Left, Image Right */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
-                <img src="https://www.example.com/path-to-your-image/community-projects.jpg" alt="Community Projects" className="w-full h-auto rounded-lg shadow-lg" />
+                <img src="https://plus.unsplash.com/premium_photo-1661962984928-f5cc5028c364?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Community Projects" className="w-full h-auto rounded-lg shadow-lg" />
               </div>
               <div>
                 <h2 className="text-3xl font-bold mb-4 text-blue-700">Our Vision</h2>
@@ -59,7 +59,7 @@ const AboutUs = () => {
             {/* Third Card: Image Left, Text Right */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div className="order-1 md:order-2">
-                <img src="https://www.example.com/path-to-your-image/volunteer.jpg" alt="Get Involved" className="w-full h-auto rounded-lg shadow-lg" />
+                <img src="https://images.unsplash.com/photo-1455849318743-b2233052fcff?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Get Involved" className="w-full h-auto rounded-lg shadow-lg" />
               </div>
               <div className="order-2 md:order-1">
                 <h2 className="text-3xl font-bold mb-4 text-blue-800">Join Us in Making a Difference</h2>

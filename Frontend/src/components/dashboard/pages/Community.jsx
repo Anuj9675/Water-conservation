@@ -31,24 +31,28 @@ function Community() {
         {users.length === 0 ? (
           <p>No users found</p>
         ) : (
-          <ul className="space-y-4">
-            {users.map((user) => (
-              <li key={user.id} className="border-b border-gray-300 pb-2 mb-2">
-                <div>
-                  <span className="font-semibold">Name:</span> {user.name}
-                </div>
-                <div>
-                  <span className="font-semibold">Email:</span> {user.email}
-                </div>
-                <div>
-                  <span className="font-semibold">Status:</span>
-                  <span className={`ml-2 ${user.status === 'online' ? 'text-green-500' : 'text-red-500'}`}>
-                    {user.status}
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <table className="w-full table-auto border-collapse">
+            <thead>
+              <tr>
+                <th className="border-b-2 border-gray-300 p-2 text-left">Name</th>
+                <th className="border-b-2 border-gray-300 p-2 text-left">Email</th>
+                <th className="border-b-2 border-gray-300 p-2 text-left">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user) => (
+                <tr key={user.id} className="border-b border-gray-300">
+                  <td className="p-2">{user.name}</td>
+                  <td className="p-2">{user.email}</td>
+                  <td className="p-2">
+                    <span className={`${user.status === 'online' ? 'text-green-500' : 'text-red-500'}`}>
+                      {user.status}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
       </div>
     </div>

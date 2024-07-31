@@ -4,11 +4,11 @@ import { FaHome } from 'react-icons/fa'; // Import the home icon
 
 // Image URLs
 const missionImages = {
-  education: 'https://www.example.com/path-to-your-image/education.jpg',
-  practices: 'https://www.example.com/path-to-your-image/practices.jpg',
-  community: 'https://www.example.com/path-to-your-image/community.jpg',
-  policy: 'https://www.example.com/path-to-your-image/policy.jpg',
-  fun: 'https://www.example.com/path-to-your-image/community-fun.jpg', // Added fun image
+  education: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  practices: 'https://plus.unsplash.com/premium_photo-1663050704914-1277fcbfe5c3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  community: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  policy: 'https://plus.unsplash.com/premium_photo-1665990294272-0c0f26cc6574?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  fun: 'https://images.unsplash.com/photo-1455849318743-b2233052fcff?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 };
 
 const handleHomeClick = () => {
@@ -108,7 +108,7 @@ const OurMission = () => {
           <p className="text-lg mb-4">
             Together, we can make water conservation a community-driven effort that is both impactful and enjoyable. Get involved today and help us create a better future for our planet!
           </p>
-          <img src={missionImages.fun} alt="Community Fun" className="w-full h-auto rounded-lg mt-6" />
+          <img src={missionImages.fun} alt="Community Fun" className="w-full h-auto rounded-lg p-24" />
         </section>
       </div>
     </div>
